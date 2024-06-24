@@ -1,0 +1,20 @@
+<?php
+// ตัวอย่างฟังก์ชันสำหรับคำนวณค่าแสดงภาษาไทย
+function calculateThai($input) {
+    // กำหนดอักขระที่ใช้แทนตัวเลข
+    $thaiDigits = ['๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙'];
+
+    // แปลงตัวเลขเป็นอักขระภาษาไทย
+    $output = '';
+    foreach (str_split($input) as $char) {
+        $output .= isset($thaiDigits[$char]) ? $thaiDigits[$char] : $char;
+    }
+
+    return $output;
+}
+
+// ตัวอย่างการใช้งานฟังก์ชัน
+$number = '1234567890';
+$result = calculateThai($number);
+echo "ตัวอย่าง: " . $result; // แสดงผลลัพธ์
+?>
